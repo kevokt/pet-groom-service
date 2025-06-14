@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 import AdminDashboard from "./pages/AdminDashboard";
 import Layanan from "./pages/Layanan";
 import Reservasi from "./pages/Reservasi";
+import AdminReservasi from "./pages/adminReservasi";
 
 function App() {
   return (
@@ -28,6 +29,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/reservasi"
+              element={
+                <ProtectedRoute>
+                  <AdminReservasi />
                 </ProtectedRoute>
               }
             />

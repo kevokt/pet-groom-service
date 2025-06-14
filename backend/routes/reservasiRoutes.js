@@ -1,6 +1,11 @@
 import express from "express";
 import multer from "multer";
-import { createReservasi, getAllReservasi } from "../controllers/reservasiController.js";
+import {
+    createReservasi,
+    getAllReservasi,
+    updateReservasiStatus,
+    deleteReservasi,
+} from "../controllers/reservasiController.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -23,5 +28,7 @@ const upload = multer({ storage });
 
 router.post("/", upload.single("petImage"), createReservasi);
 router.get("/", getAllReservasi);
+router.put("/:id", updateReservasiStatus);
+router.delete("/:id", deleteReservasi);
 
 export default router;

@@ -21,6 +21,7 @@ import { Link } from "react-router-dom";
 import { GiComputerFan } from "react-icons/gi";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
+import { useColorModeValue } from "./ui/color-mode";
 
 const Logo = (props) => {
   return (
@@ -39,7 +40,13 @@ const Logo = (props) => {
 
 export default function SmallCentered() {
   return (
-    <Box bg={"gray.50"} color={"gray.700"} mt={20} boxShadow={"lg"} id="footer">
+    <Box
+      bg={useColorModeValue("gray.50", "gray.800")}
+      color={useColorModeValue("gray.800", "gray.400")}
+      mt={20}
+      boxShadow={"lg"}
+      id="footer"
+    >
       <Container
         as={Stack}
         maxW={"6xl"}
@@ -53,7 +60,11 @@ export default function SmallCentered() {
         </Center>
       </Container>
 
-      <Box borderTopWidth={1} borderStyle={"solid"} borderColor={"gray.200"}>
+      <Box
+        borderTopWidth={1}
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.700")}
+      >
         <Container
           as={Stack}
           maxW={"6xl"}

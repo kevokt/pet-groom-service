@@ -54,6 +54,10 @@ const Login = () => {
         console.log(result);
         if (result.data.status === "Success") {
           localStorage.setItem("token", result.data.token);
+          toaster.create({
+            title: "Login Berhasil!",
+            type: "success",
+          });
           navigate("/admin");
         }
       })

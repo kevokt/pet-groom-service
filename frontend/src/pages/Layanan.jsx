@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useColorModeValue } from "@/components/ui/color-mode";
 import HomeNav from "@/components/HomeNavbar/HomeNav";
+import Footer from "@/components/Footer";
 
 const Layanan = () => {
   return (
@@ -110,6 +111,7 @@ const Layanan = () => {
           </SimpleGrid>
         </Stack>
       </Box>
+      <Footer />
     </>
   );
 };
