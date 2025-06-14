@@ -23,6 +23,7 @@ import Footer from "@/components/Footer";
 const Layanan = () => {
   const [form, setForm] = useState({
     namaPemesan: "",
+    namaPeliharaan: "",
     nomorTelepon: "",
     jenisHewan: "",
     paket: "",
@@ -121,10 +122,20 @@ const Layanan = () => {
 
             <Fieldset.Content>
               <Field.Root>
-                <Field.Label>Nama Pemesan</Field.Label>
+                <Field.Label>Nama Owner</Field.Label>
                 <Input
                   name="namaPemesan"
                   value={form.namaPemesan}
+                  onChange={handleChange}
+                  required
+                />
+              </Field.Root>
+
+              <Field.Root>
+                <Field.Label>Nama Peliharaan</Field.Label>
+                <Input
+                  name="namaPeliharaan"
+                  value={form.namaPeliharaan}
                   onChange={handleChange}
                   required
                 />

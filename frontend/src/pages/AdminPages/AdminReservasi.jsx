@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Box, HStack, Button, Card, Image, Text, Flex } from "@chakra-ui/react";
-import AdminSidebarNav from "../components/AdminNavbar/AdminSidebarNav";
+import AdminSidebarNav from "../../components/AdminNavbar/AdminSidebarNav";
 import axios from "axios";
+import { useColorModeValue } from "@/components/ui/color-mode";
 import { toaster } from "@/components/ui/toaster";
 
 const AdminReservasi = () => {
@@ -117,7 +118,11 @@ const AdminReservasi = () => {
           p={"5"}
         >
           {data.map((item) => (
-            <Card.Root maxW="3xs" overflow="hidden">
+            <Card.Root
+              maxW="3xs"
+              overflow="hidden"
+              bg={useColorModeValue("white", "gray.700")}
+            >
               <Image
                 src={`http://localhost:3000/uploads/${item.petImage}`}
                 alt="Green double couch with wooden legs"
@@ -125,13 +130,19 @@ const AdminReservasi = () => {
                 h={"150px"}
               />
               <Card.Body gap="2">
-                <Card.Title>{item.namaPemesan}</Card.Title>
+                <Card.Title textAlign={"center"}>
+                  {item.namaPeliharaan}
+                </Card.Title>
                 <Card.Description>
                   <Box
                     as="ul"
                     listStylePosition="inside"
                     className="dataReservasi"
                   >
+                    <li>
+                      <strong>Owner:</strong> <br />
+                      {item.namaPemesan}
+                    </li>
                     <li>
                       <strong>No HP:</strong> <br />
                       {item.nomorTelepon}

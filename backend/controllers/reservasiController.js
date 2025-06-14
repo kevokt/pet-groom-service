@@ -1,9 +1,12 @@
 import Reservasi from "../models/Reservasi.js";
+import fs from "fs";
+import path from "path";
 
 export const createReservasi = async (req, res) => {
     try {
         const {
             namaPemesan,
+            namaPeliharaan,
             nomorTelepon,
             jenisHewan,
             paket,
@@ -17,6 +20,7 @@ export const createReservasi = async (req, res) => {
 
         const newReservasi = new Reservasi({
             namaPemesan,
+            namaPeliharaan,
             nomorTelepon,
             jenisHewan,
             paket,
@@ -61,8 +65,22 @@ export const updateReservasiStatus = async (req, res) => {
 export const deleteReservasi = async (req, res) => {
     try {
         const { id } = req.params;
+
+        const reservasi = await Reservasi.findById(id);
+        if (!reservasi) {
+            return res.status(404).json({ message: "Data tidak ditemukan" });
+        }
+
+        // Hapus file gambar 
+        const imagePath = path.join("backend", "uploads", reservasi.petImage);
+        if (fs.existsSync(imagePath)) {
+            fs.unlinkSync(imagePath);
+        }
+
+        // Hapus data dari MongoDB
         await Reservasi.findByIdAndDelete(id);
-        res.json({ message: "Reservasi berhasil dihapus" });
+
+        res.json({ message: "Reservasi dan gambar berhasil dihapus" });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

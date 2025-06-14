@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const reservasiSchema = new mongoose.Schema({
     namaPemesan: { type: String, required: true },
+    namaPeliharaan: { type: String, required: true },
     nomorTelepon: { type: String },
     jenisHewan: { type: String },
     paket: { type: String },

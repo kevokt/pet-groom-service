@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import AdminSidebarNav from "../components/AdminNavbar/AdminSidebarNav";
+import AdminSidebarNav from "../../components/AdminNavbar/AdminSidebarNav";
 import { Box, HStack, Text } from "@chakra-ui/react";
 import { toaster } from "@/components/ui/toaster";
 

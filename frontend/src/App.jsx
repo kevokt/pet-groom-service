@@ -9,10 +9,10 @@ import { Toaster, toaster } from "@/components/ui/toaster";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import AdminDashboard from "./pages/AdminDashboard";
+import AdminDashboard from "./pages/AdminPages/AdminDashboard";
 import Layanan from "./pages/Layanan";
 import Reservasi from "./pages/Reservasi";
-import AdminReservasi from "./pages/adminReservasi";
+import AdminReservasi from "./pages/AdminPages/AdminReservasi";
 
 function App() {
   return (
