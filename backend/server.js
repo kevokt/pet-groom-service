@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 
 import authRoutes from './routes/authRoutes.js';
 import reservasiRoutes from './routes/reservasiRoutes.js';
+import paketRoutes from './routes/paketRoutes.js';
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ mongoose.connect(process.env.MONGO_URI)
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/reservasi', reservasiRoutes);
+app.use('/api/paket', paketRoutes);
 
 // Start server
 app.listen(PORT, () => {

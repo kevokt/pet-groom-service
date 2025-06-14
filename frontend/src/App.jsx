@@ -14,6 +14,8 @@ import Layanan from "./pages/Layanan";
 import Reservasi from "./pages/Reservasi";
 import AdminReservasi from "./pages/AdminPages/AdminReservasi";
 import AdminPaket from "./pages/AdminPages/AdminPaket";
+import AdminPaketCreate from "./pages/AdminPages/AdminPaketCreate";
+import AdminPaketUpdate from "./pages/AdminPages/AdminPaketUpdate";
 
 function App() {
   return (
@@ -41,6 +43,23 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/admin/paket/create"
+              element={
+                <ProtectedRoute>
+                  <AdminPaketCreate />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/paket/update/:id"
+              element={
+                <ProtectedRoute>
+                  <AdminPaketUpdate />
+                </ProtectedRoute>
+              }
+            />
+
             <Route
               path="/admin/reservasi"
               element={

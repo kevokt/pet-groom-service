@@ -121,7 +121,7 @@ const AdminReservasi = () => {
             <Card.Root
               maxW="3xs"
               overflow="hidden"
-              bg={useColorModeValue("white", "gray.700")}
+              bg={useColorModeValue("white", "blackAlpha.300")}
             >
               <Image
                 src={`http://localhost:3000/uploads/${item.petImage}`}

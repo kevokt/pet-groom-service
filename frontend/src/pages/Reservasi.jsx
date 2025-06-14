@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -29,7 +29,22 @@ const Layanan = () => {
     paket: "",
     jadwal: "",
   });
+  const [paketList, setPaketList] = useState([]);
+
   const [petImage, setPetImage] = useState(null);
+
+  useEffect(() => {
+    const fetchPaketList = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/api/paket");
+        setPaketList(res.data.reverse());
+      } catch (error) {
+        console.error("Gagal memuat data paket:", error);
+      }
+    };
+
+    fetchPaketList();
+  }, []);
 
   const jenisHewanOptions = [
     "Pilih Jenis Hewan",
@@ -37,14 +52,6 @@ const Layanan = () => {
     "Anjing",
     "Kelinci",
     "Lainnya",
-  ];
-
-  const paketOptions = [
-    "Pilih Paket",
-    "Paket A | Basic Care (Rp 50.000)",
-    "Paket B | Premium Care (Rp 100.000)",
-    "Paket C | VIP Care (Rp 150.000)",
-    "Paket D | Deluxe Care (Rp 200.000)",
   ];
 
   const jadwalOptions = [
@@ -180,12 +187,15 @@ const Layanan = () => {
                       setForm({ ...form, paket: e.target.value })
                     }
                   >
-                    {paketOptions.map((item) => (
-                      <option key={item} value={item}>
-                        {item}
+                    <option value="">Pilih Paket</option>
+                    {paketList.map((item) => (
+                      <option key={item._id} value={item.namaPaket}>
+                        {item.namaPaket} | Rp{" "}
+                        {Number(item.harga).toLocaleString("id-ID")}
                       </option>
                     ))}
                   </NativeSelect.Field>
+
                   <NativeSelect.Indicator />
                 </NativeSelect.Root>
               </Field.Root>
