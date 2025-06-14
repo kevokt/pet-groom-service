@@ -13,9 +13,23 @@ const AdminSidebarNav = ({ inDashboard, inPaket, inReservasi }) => {
   const fontColor = useColorModeValue("black", "whiteAlpha.900");
   const navigate = useNavigate();
 
+  const navItems = [
+    { to: "/admin", label: "Dashboard", isActive: inDashboard },
+    { to: "/admin/paket", label: "Kelola Paket", isActive: inPaket },
+    {
+      to: "/admin/reservasi",
+      label: "Kelola Reservasi",
+      isActive: inReservasi,
+    },
+  ];
+
   return (
     <>
-      <AdminDrawerNav />
+      <AdminDrawerNav
+        inDashboard={inDashboard}
+        inPaket={inPaket}
+        inReservasi={inReservasi}
+      />
       <Box
         position="fixed"
         left="0"
@@ -50,39 +64,20 @@ const AdminSidebarNav = ({ inDashboard, inPaket, inReservasi }) => {
             </Flex>
 
             <VStack align="center" spacing={4}>
-              <Button
-                as={RouterLink}
-                to="/admin"
-                w="200px"
-                variant={inDashboard ? "surface" : "ghost"}
-                colorPalette="purple"
-                justifyContent="center"
-                _hover={{ bg: hoverBg }}
-              >
-                Dashboard
-              </Button>
-              <Button
-                as={RouterLink}
-                to="/admin/paket"
-                w="200px"
-                variant={inPaket ? "surface" : "ghost"}
-                colorPalette="purple"
-                justifyContent="center"
-                _hover={{ bg: hoverBg }}
-              >
-                Kelola Paket
-              </Button>
-              <Button
-                as={RouterLink}
-                to="/admin/reservasi"
-                w="200px"
-                variant={inReservasi ? "surface" : "ghost"}
-                colorPalette="purple"
-                justifyContent="center"
-                _hover={{ bg: hoverBg }}
-              >
-                Kelola Reservasi
-              </Button>
+              {navItems.map((item) => (
+                <Button
+                  key={item.to}
+                  as={RouterLink}
+                  to={item.to}
+                  w="200px"
+                  variant={item.isActive ? "surface" : "ghost"}
+                  colorPalette="purple"
+                  justifyContent="center"
+                  _hover={{ bg: hoverBg }}
+                >
+                  {item.label}
+                </Button>
+              ))}
               <Button
                 w="200px"
                 variant="ghost"

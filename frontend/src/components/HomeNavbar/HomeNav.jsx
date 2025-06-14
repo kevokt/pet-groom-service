@@ -7,6 +7,13 @@ import HomeDrawerNav from "./HomeDrawerNav";
 
 const HomeNav = ({ inBeranda, inLayanan, inReservasi }) => {
   const fontColor = useColorModeValue("black", "whiteAlpha.900");
+  const navItems = [
+    { to: "/", label: "Beranda", isActive: inBeranda },
+    { to: "/layanan", label: "Layanan", isActive: inLayanan },
+    { to: "/reservasi", label: "Reservasi", isActive: inReservasi },
+    { to: "/login", label: "Login", isActive: false, isGhost: true },
+  ];
+
   return (
     <Box
       bg={useColorModeValue("gray.50", "gray.800")}
@@ -27,59 +34,27 @@ const HomeNav = ({ inBeranda, inLayanan, inReservasi }) => {
         </Flex>
         <HStack gap={0} display={{ base: "none", md: "flex" }}>
           <ColorModeButton />
-          <Link to={"/"}>
-            <Button
-              className="nav-button"
-              rounded={"full"}
-              colorPalette={"purple"}
-              variant={inBeranda ? "surface" : "ghost"}
-              fontSize={"sm"}
-              color={fontColor}
-              _hover={{ bg: useColorModeValue("purple.300", "purple.800") }}
-            >
-              <span>Beranda</span>
-            </Button>
-          </Link>
-          <Link to={"/layanan"}>
-            <Button
-              className="nav-button"
-              rounded={"full"}
-              colorPalette={"purple"}
-              variant={inLayanan ? "surface" : "ghost"}
-              fontSize={"sm"}
-              color={fontColor}
-              _hover={{ bg: useColorModeValue("purple.300", "purple.800") }}
-            >
-              <span>Layanan</span>
-            </Button>
-          </Link>
-          <Link to={"/reservasi"}>
-            <Button
-              className="nav-button"
-              rounded={"full"}
-              colorPalette={"purple"}
-              variant={inReservasi ? "surface" : "ghost"}
-              fontSize={"sm"}
-              color={fontColor}
-              _hover={{ bg: useColorModeValue("purple.300", "purple.800") }}
-            >
-              <span>Reservasi</span>
-            </Button>
-          </Link>
-          <Link to={"/login"}>
-            <Button
-              className="nav-button"
-              rounded={"full"}
-              variant="ghost"
-              fontSize={"sm"}
-              color={fontColor}
-              _hover={{ bg: useColorModeValue("purple.300", "purple.800") }}
-            >
-              <span>Login</span>
-            </Button>
-          </Link>
+          {navItems.map(({ to, label, isActive, isGhost }) => (
+            <Link to={to} key={label}>
+              <Button
+                className="nav-button"
+                rounded={"full"}
+                colorPalette={"purple"}
+                variant={isGhost ? "ghost" : isActive ? "surface" : "ghost"}
+                fontSize={"sm"}
+                color={fontColor}
+                _hover={{ bg: useColorModeValue("purple.300", "purple.800") }}
+              >
+                <span>{label}</span>
+              </Button>
+            </Link>
+          ))}
         </HStack>
-        <HomeDrawerNav />
+        <HomeDrawerNav
+          inBeranda={inBeranda}
+          inLayanan={inLayanan}
+          inReservasi={inReservasi}
+        />
       </Flex>
     </Box>
   );

@@ -35,6 +35,27 @@ const AdminDrawerNav = ({ inDashboard, inPaket, inReservasi }) => {
   const fontColor = useColorModeValue("black", "whiteAlpha.900");
   const navigate = useNavigate();
 
+  const navItems = [
+    { to: "/admin", label: "Dashboard", isActive: inDashboard },
+    { to: "/admin/paket", label: "Kelola Paket", isActive: inPaket },
+    {
+      to: "/admin/reservasi",
+      label: "Kelola Reservasi",
+      isActive: inReservasi,
+    },
+  ];
+
+  const handleLogout = () => {
+    if (window.confirm("Apakah anda yakin ingin keluar?")) {
+      localStorage.removeItem("token");
+      toaster.create({
+        title: "Berhasil Logout",
+        type: "success",
+      });
+      navigate("/login");
+    }
+  };
+
   return (
     <Box
       position="fixed"
@@ -62,51 +83,23 @@ const AdminDrawerNav = ({ inDashboard, inPaket, inReservasi }) => {
               </Drawer.Header>
               <Drawer.Body>
                 <VStack>
-                  <Link to={"/admin"}>
-                    <Button
-                      className="nav-button"
-                      rounded={"full"}
-                      colorPalette={"purple"}
-                      variant={inDashboard ? "surface" : "ghost"}
-                      fontSize={"sm"}
-                      color={fontColor}
-                      _hover={{
-                        bg: useColorModeValue("purple.300", "purple.800"),
-                      }}
-                    >
-                      <span>Dashboard</span>
-                    </Button>
-                  </Link>
-                  <Link to={"/admin"}>
-                    <Button
-                      className="nav-button"
-                      rounded={"full"}
-                      colorPalette={"purple"}
-                      variant={inPaket ? "surface" : "ghost"}
-                      fontSize={"sm"}
-                      color={fontColor}
-                      _hover={{
-                        bg: useColorModeValue("purple.300", "purple.800"),
-                      }}
-                    >
-                      <span>Kelola Paket</span>
-                    </Button>
-                  </Link>
-                  <Link to={"/admin/reservasi"}>
-                    <Button
-                      className="nav-button"
-                      rounded={"full"}
-                      colorPalette={"purple"}
-                      variant={inReservasi ? "surface" : "ghost"}
-                      fontSize={"sm"}
-                      color={fontColor}
-                      _hover={{
-                        bg: useColorModeValue("purple.300", "purple.800"),
-                      }}
-                    >
-                      <span>Kelola Reservasi</span>
-                    </Button>
-                  </Link>
+                  {navItems.map(({ to, label, isActive }) => (
+                    <Link key={to} to={to}>
+                      <Button
+                        className="nav-button"
+                        rounded={"full"}
+                        colorPalette={"purple"}
+                        variant={isActive ? "surface" : "ghost"}
+                        fontSize={"sm"}
+                        color={fontColor}
+                        _hover={{
+                          bg: useColorModeValue("purple.300", "purple.800"),
+                        }}
+                      >
+                        <span>{label}</span>
+                      </Button>
+                    </Link>
+                  ))}
                   <Button
                     className="nav-button"
                     rounded={"full"}
@@ -116,16 +109,7 @@ const AdminDrawerNav = ({ inDashboard, inPaket, inReservasi }) => {
                     _hover={{
                       bg: useColorModeValue("purple.300", "purple.800"),
                     }}
-                    onClick={() => {
-                      if (window.confirm("Apakah anda yakin ingin keluar?")) {
-                        localStorage.removeItem("token");
-                        toaster.create({
-                          title: "Berhasil Logout",
-                          type: "success",
-                        });
-                        navigate("/login");
-                      }
-                    }}
+                    onClick={handleLogout}
                   >
                     <span>Logout</span>
                   </Button>
