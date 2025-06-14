@@ -42,10 +42,10 @@ const AdminReservasi = () => {
 
   const handleToggleStatus = async (id, currentStatus) => {
     // Tentukan status berikutnya
-    let newStatus = "pending";
-    if (currentStatus === "pending") newStatus = "approved";
-    else if (currentStatus === "approved") newStatus = "rejected";
-    else if (currentStatus === "rejected") newStatus = "pending";
+    let newStatus = "PENDING";
+    if (currentStatus === "PENDING") newStatus = "APPROVED";
+    else if (currentStatus === "APPROVED") newStatus = "REJECTED";
+    else if (currentStatus === "REJECTED") newStatus = "PENDING";
 
     try {
       await axios.put(`http://localhost:3000/api/reservasi/${id}`, {
@@ -67,11 +67,11 @@ const AdminReservasi = () => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case "pending":
+      case "PENDING":
         return "green";
-      case "approved":
+      case "APPROVED":
         return "red";
-      case "rejected":
+      case "REJECTED":
         return "yellow";
       default:
         return "gray";
@@ -80,11 +80,11 @@ const AdminReservasi = () => {
 
   const getStatusButtonText = (status) => {
     switch (status) {
-      case "pending":
+      case "PENDING":
         return "Approve";
-      case "approved":
+      case "APPROVED":
         return "Reject";
-      case "rejected":
+      case "REJECTED":
         return "Pending";
       default:
         return "Ganti Status";

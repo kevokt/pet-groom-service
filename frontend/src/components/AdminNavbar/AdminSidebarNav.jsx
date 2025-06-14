@@ -7,7 +7,7 @@ import { ColorModeButton, useColorModeValue } from "../ui/color-mode";
 import { toaster } from "../ui/toaster";
 import AdminDrawerNav from "./AdminDrawerNav";
 
-const AdminSidebarNav = ({ inDashboard, inLayanan, inReservasi }) => {
+const AdminSidebarNav = ({ inDashboard, inPaket, inReservasi }) => {
   const bgColor = useColorModeValue("gray.50", "gray.800");
   const hoverBg = useColorModeValue("purple.300", "purple.800");
   const fontColor = useColorModeValue("black", "whiteAlpha.900");
@@ -63,9 +63,9 @@ const AdminSidebarNav = ({ inDashboard, inLayanan, inReservasi }) => {
               </Button>
               <Button
                 as={RouterLink}
-                to="/admin"
+                to="/admin/paket"
                 w="200px"
-                variant={inLayanan ? "surface" : "ghost"}
+                variant={inPaket ? "surface" : "ghost"}
                 colorPalette="purple"
                 justifyContent="center"
                 _hover={{ bg: hoverBg }}

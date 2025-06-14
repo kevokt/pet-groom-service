@@ -26,7 +26,7 @@ export const createReservasi = async (req, res) => {
             paket,
             jadwal,
             petImage,
-            status: "pending",
+            status: "PENDING",
         });
 
         await newReservasi.save();

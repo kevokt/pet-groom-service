@@ -9,7 +9,7 @@ const reservasiSchema = new mongoose.Schema({
     jadwal: { type: String },
     status: {
         type: String,
-        default: "pending", // ← default value
+        default: "PENDING", // ← default value
     },
     petImage: { type: String, required: true },
 }, { timestamps: true });

@@ -13,6 +13,7 @@ import AdminDashboard from "./pages/AdminPages/AdminDashboard";
 import Layanan from "./pages/Layanan";
 import Reservasi from "./pages/Reservasi";
 import AdminReservasi from "./pages/AdminPages/AdminReservasi";
+import AdminPaket from "./pages/AdminPages/AdminPaket";
 
 function App() {
   return (
@@ -29,6 +30,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/paket"
+              element={
+                <ProtectedRoute>
+                  <AdminPaket />
                 </ProtectedRoute>
               }
             />
