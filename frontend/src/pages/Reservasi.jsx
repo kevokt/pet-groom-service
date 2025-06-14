@@ -112,7 +112,7 @@ const Layanan = () => {
           onSubmit={handleSubmit}
           w="80%"
           maxW={"800px"}
-          bg={useColorModeValue("gray.100", "gray.700")}
+          bg={useColorModeValue("gray.100", "blackAlpha.300")}
           mt={8}
           p={8}
           rounded={"2xl"}

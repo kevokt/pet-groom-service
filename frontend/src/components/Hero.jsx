@@ -8,9 +8,11 @@ import {
   VStack,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import { useColorModeValue } from "./ui/color-mode";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <Box h={"90vh"} maxH={"800px"} position="relative">
       {/* Background Image */}
@@ -62,6 +64,7 @@ const Hero = () => {
                 rounded={"full"}
                 color={"white"}
                 _hover={{ bg: "blue.500" }}
+                onClick={() => navigate("/layanan")}
               >
                 Lihat Layanan
               </Button>
@@ -70,6 +73,7 @@ const Hero = () => {
                 rounded={"full"}
                 color={"white"}
                 _hover={{ bg: "green.600" }}
+                onClick={() => navigate("/reservasi")}
               >
                 Lakukan Reservasi
               </Button>

@@ -41,7 +41,7 @@ const Layanan = () => {
                 <Card.Root
                   width="300px"
                   minH="300px"
-                  bg={useColorModeValue("white", "gray.700")}
+                  bg={useColorModeValue("white", "blackAlpha.300")}
                   borderRadius="2xl"
                   boxShadow="md"
                   overflow="hidden"

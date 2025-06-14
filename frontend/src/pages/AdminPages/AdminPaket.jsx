@@ -10,6 +10,7 @@ import {
   Card,
   Flex,
 } from "@chakra-ui/react";
+import { toaster } from "@/components/ui/toaster";
 import { useNavigate } from "react-router-dom";
 import { useColorModeValue } from "@/components/ui/color-mode";
 
@@ -38,8 +39,16 @@ const AdminPaket = () => {
     try {
       await axios.delete(`http://localhost:3000/api/paket/${id}`);
       setPakets(pakets.filter((p) => p._id !== id));
+      toaster.create({
+        title: "Paket berhasil dihapus!",
+        type: "success",
+      });
     } catch (err) {
       console.error("Gagal menghapus paket:", err);
+      toaster.create({
+        title: "Gagal menghapus paket",
+        type: "error",
+      });
     }
   }
 
