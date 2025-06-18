@@ -39,4 +39,4 @@ cd frontend
 npm run dev
 ```
 
-4. Masukan link localhost yang berada di frontend ke browser.
+7. Masukan link localhost yang berada di frontend ke browser.
