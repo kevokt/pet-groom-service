@@ -40,3 +40,9 @@ npm run dev
 ```
 
 7. Masukan link localhost yang berada di frontend ke browser.
+
+Untuk generate documentation
+
+```
+npx jsdoc -c jsdoc.json
+```
