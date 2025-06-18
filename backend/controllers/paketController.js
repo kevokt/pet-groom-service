@@ -1,9 +1,14 @@
+/**
+ * @module controllers/paketController
+ */
+
 import Paket from "../models/Paket.js";
 
 /**
  * Membuat paket baru.
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @memberOf module:controllers/paketController
  */
 export const createPaket = async (req, res) => {
     try {
@@ -20,6 +25,7 @@ export const createPaket = async (req, res) => {
  * Mengambil satu paket berdasarkan ID.
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @memberOf module:controllers/paketController
  */
 export const getPaketById = async (req, res) => {
     try {
@@ -37,6 +43,7 @@ export const getPaketById = async (req, res) => {
  * Mengambil semua paket.
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @memberOf module:controllers/paketController
  */
 export const getAllPaket = async (req, res) => {
     try {
@@ -51,6 +58,7 @@ export const getAllPaket = async (req, res) => {
  * Memperbarui paket berdasarkan ID.
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @memberOf module:controllers/paketController
  */
 export const updatePaket = async (req, res) => {
     try {
@@ -71,6 +79,7 @@ export const updatePaket = async (req, res) => {
  * Menghapus paket berdasarkan ID.
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @memberOf module:controllers/paketController
  */
 export const deletePaket = async (req, res) => {
     try {

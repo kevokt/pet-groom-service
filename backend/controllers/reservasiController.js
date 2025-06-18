@@ -1,3 +1,7 @@
+/**
+ * @module controllers/reservasiController
+ */
+
 import Reservasi from "../models/Reservasi.js";
 import fs from "fs";
 import path from "path";
@@ -6,6 +10,7 @@ import path from "path";
  * Menyimpan data reservasi baru ke database.
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @memberof module:controllers/reservasiController
  */
 export const createReservasi = async (req, res) => {
     try {
@@ -44,7 +49,8 @@ export const createReservasi = async (req, res) => {
 /**
  * Mengambil seluruh data reservasi dari database.
  * @param {Object} req - Express request object
- * @param {Object} res - Express response object 
+ * @param {Object} res - Express response object
+ * @memberof module:controllers/reservasiController 
  */
 export const getAllReservasi = async (req, res) => {
     try {
@@ -59,6 +65,7 @@ export const getAllReservasi = async (req, res) => {
  * Memperbarui status reservasi berdasarkan ID.
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @memberof module:controllers/reservasiController
  */
 export const updateReservasiStatus = async (req, res) => {
     try {
@@ -81,6 +88,7 @@ export const updateReservasiStatus = async (req, res) => {
  * Menghapus data reservasi dan file gambar terkait.
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @memberof module:controllers/reservasiController
  */
 export const deleteReservasi = async (req, res) => {
     try {

@@ -1,3 +1,6 @@
+/**
+ * @module models/Paket
+ */
 import mongoose from "mongoose";
 
 /**

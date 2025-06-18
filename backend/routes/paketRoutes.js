@@ -1,3 +1,6 @@
+/**
+ * @module routes/paketRoutes
+ */
 import express from "express";
 import {
     createPaket,

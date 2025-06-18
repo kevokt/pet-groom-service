@@ -1,3 +1,7 @@
+/**
+ * @module models/Reservasi
+ */
+
 import mongoose from "mongoose";
 
 /**

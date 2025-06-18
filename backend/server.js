@@ -1,6 +1,6 @@
 /**
  * @file server.js
- * Server utama Express untuk aplikasi reservasi hewan peliharaan.
+ * Server utama Express untuk aplikasi pet groom service hewan peliharaan.
  */
 
 // Library imports

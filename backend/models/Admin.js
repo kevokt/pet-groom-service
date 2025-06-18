@@ -1,3 +1,6 @@
+/**
+ * @module models/Admin
+ */
 import mongoose from 'mongoose';
 
 /**

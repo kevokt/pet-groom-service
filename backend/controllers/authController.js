@@ -1,3 +1,7 @@
+/**
+ * @module controllers/authController
+ */
+
 import AdminModel from '../models/Admin.js';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
@@ -10,6 +14,7 @@ const SECRET_KEY = process.env.SECRET_KEY;
  * dan menghasilkan JWT jika berhasil.
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @memberof module:controllers/authController
  */
 export const login = async (req, res) => {
     const { username, password } = req.body;
@@ -34,6 +39,7 @@ export const login = async (req, res) => {
  * Registrasi admin baru.
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
+ * @memberof module:controllers/authController
  */
 export const register = async (req, res) => {
     try {
