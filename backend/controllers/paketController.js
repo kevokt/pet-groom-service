@@ -1,5 +1,10 @@
 import Paket from "../models/Paket.js";
 
+/**
+ * Membuat paket baru.
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ */
 export const createPaket = async (req, res) => {
     try {
         const { namaPaket, harga, deskripsi } = req.body;
@@ -11,6 +16,11 @@ export const createPaket = async (req, res) => {
     }
 };
 
+/**
+ * Mengambil satu paket berdasarkan ID.
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ */
 export const getPaketById = async (req, res) => {
     try {
         const paket = await Paket.findById(req.params.id);
@@ -23,6 +33,11 @@ export const getPaketById = async (req, res) => {
     }
 };
 
+/**
+ * Mengambil semua paket.
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ */
 export const getAllPaket = async (req, res) => {
     try {
         const paketList = await Paket.find().sort({ createdAt: -1 });
@@ -32,6 +47,11 @@ export const getAllPaket = async (req, res) => {
     }
 };
 
+/**
+ * Memperbarui paket berdasarkan ID.
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ */
 export const updatePaket = async (req, res) => {
     try {
         const { id } = req.params;
@@ -47,6 +67,11 @@ export const updatePaket = async (req, res) => {
     }
 };
 
+/**
+ * Menghapus paket berdasarkan ID.
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ */
 export const deletePaket = async (req, res) => {
     try {
         const { id } = req.params;

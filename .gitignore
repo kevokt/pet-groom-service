@@ -1,6 +1,7 @@
-# ignore images
+# ignore 
 sampleImages
 backend/uploads/
+backend/docs/
 
 # Logs
 logs

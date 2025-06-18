@@ -1,3 +1,8 @@
+/**
+ * @file server.js
+ * Server utama Express untuk aplikasi reservasi hewan peliharaan.
+ */
+
 // Library imports
 import express from 'express';
 import cors from 'cors';
@@ -16,10 +21,25 @@ dotenv.config();
 
 // Initialize Express app
 const app = express();
+
+/**
+ * Port untuk menjalankan server.
+ * Nilai default: 3000 jika variabel lingkungan tidak disediakan.
+ * @constant {number}
+ */
 const PORT = process.env.PORT || 3000;
 
 // Get current directory path
+/**
+ * Jalur absolut dari file modul saat ini.
+ * @constant {string}
+ */
 const __filename = fileURLToPath(import.meta.url);
+
+/**
+ * Jalur direktori dari file modul saat ini.
+ * @constant {string}
+ */
 const __dirname = path.dirname(__filename);
 
 // Middlewares
@@ -37,7 +57,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/reservasi', reservasiRoutes);
 app.use('/api/paket', paketRoutes);
 
-// Start server
+/**
+ * Menjalankan server Express pada port yang ditentukan.
+ */
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
