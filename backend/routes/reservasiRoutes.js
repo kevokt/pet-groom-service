@@ -1,4 +1,6 @@
 /**
+ * Routing untuk data reservasi layanan hewan.
+ *
  * @module routes/reservasiRoutes
  */
 import express from "express";
@@ -32,30 +34,38 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /**
- * @route POST /api/reservasi
- * @desc Membuat reservasi baru dengan upload gambar peliharaan
- * @access Public
+ * Membuat reservasi baru dengan upload gambar peliharaan.
+ *
+ * @function createReservasiRoute
+ * @name POST /api/reservasi
+ * @memberof module:routes/reservasiRoutes
  */
 router.post("/", upload.single("petImage"), createReservasi);
 
 /**
- * @route GET /api/reservasi
- * @desc Mengambil seluruh data reservasi
- * @access Public
+ * Mengambil seluruh data reservasi.
+ *
+ * @function getAllReservasiRoute
+ * @name GET /api/reservasi
+ * @memberof module:routes/reservasiRoutes
  */
 router.get("/", getAllReservasi);
 
 /**
- * @route PUT /api/reservasi/:id
- * @desc Mengubah status reservasi (PENDING, APPROVED, REJECTED)
- * @access Public
+ * Mengubah status reservasi (PENDING, APPROVED, REJECTED).
+ *
+ * @function updateReservasiStatusRoute
+ * @name PUT /api/reservasi/:id
+ * @memberof module:routes/reservasiRoutes
  */
 router.put("/:id", updateReservasiStatus);
 
 /**
- * @route DELETE /api/reservasi/:id
- * @desc Menghapus reservasi dan gambar terkait
- * @access Public
+ * Menghapus reservasi dan gambar terkait.
+ *
+ * @function deleteReservasiRoute
+ * @name DELETE /api/reservasi/:id
+ * @memberof module:routes/reservasiRoutes
  */
 router.delete("/:id", deleteReservasi);
 

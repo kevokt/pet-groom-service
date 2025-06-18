@@ -1,4 +1,6 @@
 /**
+ * Routing untuk autentikasi admin.
+ * 
  * @module routes/authRoutes
  */
 import express from 'express';
@@ -7,16 +9,20 @@ import { login, register } from '../controllers/authController.js';
 const router = express.Router();
 
 /**
- * @route POST /api/auth/login
- * @desc Login admin dan dapatkan token
- * @access Public
+ * Login admin dan dapatkan token.
+ *
+ * @function loginRoute
+ * @name POST /api/auth/login
+ * @memberof module:routes/authRoutes
  */
 router.post('/login', login);
 
 /**
- * @route POST /api/auth/register
- * @desc Registrasi admin baru
- * @access Public
+ * Registrasi admin baru.
+ *
+ * @function registerRoute
+ * @name POST /api/auth/register
+ * @memberof module:routes/authRoutes
  */
 router.post('/register', register);
 

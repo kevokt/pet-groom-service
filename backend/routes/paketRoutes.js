@@ -1,4 +1,6 @@
 /**
+ * Routing untuk data paket layanan.
+ *
  * @module routes/paketRoutes
  */
 import express from "express";
@@ -13,37 +15,47 @@ import {
 const router = express.Router();
 
 /**
- * @route POST /api/paket
- * @desc Membuat paket baru
- * @access Public (ubah ke Private jika perlu proteksi)
+ * Membuat paket baru.
+ *
+ * @function createPaketRoute
+ * @name POST /api/paket
+ * @memberof module:routes/paketRoutes
  */
 router.post("/", createPaket);
 
 /**
- * @route GET /api/paket/:id
- * @desc Mengambil detail paket berdasarkan ID
- * @access Public
+ * Mengambil detail paket berdasarkan ID.
+ *
+ * @function getPaketByIdRoute
+ * @name GET /api/paket/:id
+ * @memberof module:routes/paketRoutes
  */
 router.get("/:id", getPaketById);
 
 /**
- * @route GET /api/paket
- * @desc Mengambil semua paket
- * @access Public
+ * Mengambil semua paket.
+ *
+ * @function getAllPaketRoute
+ * @name GET /api/paket
+ * @memberof module:routes/paketRoutes
  */
 router.get("/", getAllPaket);
 
 /**
- * @route PUT /api/paket/:id
- * @desc Memperbarui paket berdasarkan ID
- * @access Public
+ * Memperbarui paket berdasarkan ID.
+ *
+ * @function updatePaketRoute
+ * @name PUT /api/paket/:id
+ * @memberof module:routes/paketRoutes
  */
 router.put("/:id", updatePaket);
 
 /**
- * @route DELETE /api/paket/:id
- * @desc Menghapus paket berdasarkan ID
- * @access Public
+ * Menghapus paket berdasarkan ID.
+ *
+ * @function deletePaketRoute
+ * @name DELETE /api/paket/:id
+ * @memberof module:routes/paketRoutes
  */
 router.delete("/:id", deletePaket);
 
